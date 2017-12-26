@@ -21,10 +21,10 @@ CPU#0にネットワーク・インタフェースが接続されているため
 
 RFSはLinuxカーネル2.6.35以降で利用する事ができます。
 
-　　　Linuxカーネル2.6.35での新機能としては、まずマルチCPU環境でネットワークスループットを向上させる「Receive Packet Steering（RPS）」および「Receive Flow Steering（RFS）」という仕組みの導入が挙げられる。これはGoogleによって提供されたもので、送受信するパケットの処理を複数のCPUに割り当てることで負荷を分散させ、スループットの向上を図るというもの。8コアのCPUを搭載するサーバーで行ったベンチマークテストでは、2〜3倍ものスループット向上やレイテンシの軽減が確認できたという。　引用元 https://mag.osdn.jp/10/08/02/0454258
+> Linuxカーネル2.6.35での新機能としては、まずマルチCPU環境でネットワークスループットを向上させる「Receive Packet Steering（RPS）」および「Receive Flow Steering（RFS）」という仕組みの導入が挙げられる。これはGoogleによって提供されたもので、送受信するパケットの処理を複数のCPUに割り当てることで負荷を分散させ、スループットの向上を図るというもの。8コアのCPUを搭載するサーバーで行ったベンチマークテストでは、2〜3倍ものスループット向上やレイテンシの軽減が確認できたという。　引用元 https://mag.osdn.jp/10/08/02/0454258
 
 
-      Receive Flow Steering (RFS) は RPS の動作を拡張し、CPU キャッシュヒット率を高めることで、ネットワーク遅延を減らします。RPS がキューの長さのみに基づいてパケットを転送する部分で、RFS は RPS バックエンドを使用して最適な CPU を計算し、その後にパケットを消費するアプリケーションの場所に基づいてパケットを転送します。これにより、CPU キャッシュ効率が高まります。RFS はデフォルトで無効になっています。 引用元 https://access.redhat.com/documentation/ja-jp/red_hat_enterprise_linux/6/html/performance_tuning_guide/network-rfs
+> Receive Flow Steering (RFS) は RPS の動作を拡張し、CPU キャッシュヒット率を高めることで、ネットワーク遅延を減らします。RPS がキューの長さのみに基づいてパケットを転送する部分で、RFS は RPS バックエンドを使用して最適な CPU を計算し、その後にパケットを消費するアプリケーションの場所に基づいてパケットを転送します。これにより、CPU キャッシュ効率が高まります。RFS はデフォルトで無効になっています。 引用元 https://access.redhat.com/documentation/ja-jp/red_hat_enterprise_linux/6/html/performance_tuning_guide/network-rfs
       
 
 
